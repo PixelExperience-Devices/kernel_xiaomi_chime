@@ -1129,9 +1129,6 @@ static int adreno_of_get_power(struct adreno_device *adreno_dev,
 	device->pwrctrl.bus_control = of_property_read_bool(node,
 		"qcom,bus-control");
 
-	device->pwrctrl.input_disable = of_property_read_bool(node,
-		"qcom,disable-wake-on-touch");
-
 	return 0;
 }
 
@@ -1566,7 +1563,6 @@ static int adreno_probe(struct platform_device *pdev)
 		dev_warn(device->dev,
 			"Failed to get gpuhtw LLC slice descriptor %ld\n",
 			PTR_ERR(adreno_dev->gpuhtw_llc_slice));
-
 out:
 	if (status) {
 		adreno_ringbuffer_close(adreno_dev);
