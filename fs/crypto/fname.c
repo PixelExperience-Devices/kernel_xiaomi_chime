@@ -403,6 +403,7 @@ int fscrypt_fname_disk_to_usr(const struct inode *inode,
 	oname->len = base64_encode((const u8 *)&nokey_name, size, oname->name);
 	return 0;
 }
+
 EXPORT_SYMBOL(fscrypt_fname_disk_to_usr);
 
 /**
